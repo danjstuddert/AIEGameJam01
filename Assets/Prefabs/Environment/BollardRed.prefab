@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4936404877820434}
   - component: {fileID: 33238993146793010}
   - component: {fileID: 23741492802916002}
-  - component: {fileID: 208066459580905356}
+  - component: {fileID: 208991119119206388}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -51,14 +51,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043383694567872}
-  m_LocalRotation: {x: -0, y: 0.83442676, z: -0, w: 0.55111897}
-  m_LocalPosition: {x: 8.305346, y: -3.6862202, z: 26.02}
+  m_LocalRotation: {x: -0, y: 0.610599, z: -0, w: 0.79194}
+  m_LocalPosition: {x: -19.84, y: -3.6862202, z: 27.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4936404877820434}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 113.11201, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 75.26601, z: 0}
 --- !u!4 &4936404877820434
 Transform:
   m_ObjectHideFlags: 1
@@ -123,9 +123,9 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!208 &208066459580905356
+  m_Size: {x: 1.4618399, y: 2.8860502, z: 3.1533937}
+  m_Center: {x: -0.030750928, y: 0.9430251, z: -0.09292744}
+--- !u!208 &208991119119206388
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
