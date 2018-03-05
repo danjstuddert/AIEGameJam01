@@ -42,7 +42,7 @@ public class Food : MonoBehaviour {
 
         Vector3 vec = transform.position;
         vec.y = 0;
-        Instantiate(ingredients[rand], vec, Quaternion.identity);
+        //Instantiate(ingredients[rand], vec, Quaternion.identity);
 
         Destroy(gameObject);
     }

@@ -39,16 +39,22 @@ public class Customers : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag(redFood))
+        if (redFood != null)
         {
-            agent.destination = redTruck.transform.position;
-            customerHit = true;
+            if (collision.gameObject.CompareTag(redFood))
+            {
+                agent.destination = redTruck.transform.position;
+                customerHit = true;
+            }
         }
 
-        if (collision.gameObject.CompareTag(greenFood))
+        if (greenFood != null)
         {
-            agent.destination = greenTruck.transform.position;
-            customerHit = true;
+            if (collision.gameObject.CompareTag(greenFood))
+            {
+                agent.destination = greenTruck.transform.position;
+                customerHit = true;
+            }
         }
     }
 
