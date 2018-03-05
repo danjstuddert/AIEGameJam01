@@ -31,12 +31,12 @@ public class Player : MonoBehaviour {
 
         movementVector.z = XCI.GetAxis(XboxAxis.LeftStickY, controller);
         movementVector.x = XCI.GetAxis(XboxAxis.LeftStickX, controller);
-        movementVector.z -= 0.5f;        
+        
         rb.MovePosition(rb.position + movementVector * movementSpeed * Time.fixedDeltaTime);
                 
         if (timeRemaining <= 0)
         {
-            if (XCI.GetAxis(XboxAxis.RightTrigger, controller) > 0.1f || Input.GetKey(KeyCode.Space))
+            if (XCI.GetAxis(XboxAxis.RightTrigger, controller) > 0.1f)
             {
                 Attack();
                 timeRemaining = cooldown;
