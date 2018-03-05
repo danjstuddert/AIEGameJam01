@@ -4,32 +4,52 @@ using UnityEngine;
 
 public class Food : MonoBehaviour {
 
-    public float launchSpeed;
-    public Transform playerTruck;
+    public float effectiveRadius;
+    private Transform playerTruck;
+    private float timeSpentInAir;
+    private Vector3 playerForward;
+    public float force;
+    public List<GameObject> ingredients;
 
 	// Use this for initialization
 	void Start () {
-        GetComponent<Rigidbody>().AddExplosionForce(launchSpeed, transform.position, 5, 2);
+        timeSpentInAir = 2.0f;
     }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+        if (timeSpentInAir > 0)
+        {
+            Vector3 newForce = playerForward * force;
 
+
+            GetComponent<Rigidbody>().AddForce(newForce.normalized);
+            
+            timeSpentInAir -= Time.deltaTime;
+        }
 	}
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.GetComponent<Customers>())
         {
-            //set target to shooter's truck
+            //set customer target destination
+
         }
+
+        //get random ingredient
+        int rand = Random.Range(0, ingredients.Count);
+
+        Instantiate(ingredients[rand], transform.position, Quaternion.identity);
 
         Destroy(gameObject);
     }
 
-    public void Create(GameObject player)
+    public void Create(Transform truckPosition, float forceAppliedToFood, Vector3 forward)
     {
-        
+        playerTruck = truckPosition;
+        playerForward = forward;
+        force = forceAppliedToFood;
     }
 
 }

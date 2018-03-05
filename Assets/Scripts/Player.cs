@@ -15,9 +15,9 @@ public class Player : MonoBehaviour {
     private float timeRemaining;
 
     public XboxController controller;
-    public Quaternion rotation;
+    private Quaternion rotation;
 
-    public GameObject temp;
+    public GameObject food;
     public float forceAppliedToFood;
 
     // Use this for initialization
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour {
     public void Attack()
     {
         //instantiate object with rigidbody
-        Instantiate(temp, transform.position + transform.forward, Quaternion.identity);
-        
+        Instantiate(food, transform.position + transform.forward, Quaternion.identity);
+        food.GetComponent<Food>().Create(truckPosition, forceAppliedToFood, transform.forward);
     }
 }
