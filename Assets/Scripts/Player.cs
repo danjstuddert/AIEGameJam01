@@ -15,14 +15,14 @@ public class Player : MonoBehaviour {
     private float timeRemaining;
 
     public XboxController controller;
-    private Quaternion rotation;
 
     public GameObject food;
-    public float forceAppliedToFood;
+    private float distanceMultiplier;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
+        distanceMultiplier = 1.2f;
     }
 	
 	// Update is called once per frame
@@ -31,12 +31,12 @@ public class Player : MonoBehaviour {
 
         movementVector.z = XCI.GetAxis(XboxAxis.LeftStickY, controller);
         movementVector.x = XCI.GetAxis(XboxAxis.LeftStickX, controller);
-                
+        movementVector.z -= 0.5f;        
         rb.MovePosition(rb.position + movementVector * movementSpeed * Time.fixedDeltaTime);
                 
         if (timeRemaining <= 0)
         {
-            if (XCI.GetAxis(XboxAxis.RightTrigger, controller) > 0.1f)
+            if (XCI.GetAxis(XboxAxis.RightTrigger, controller) > 0.1f || Input.GetKey(KeyCode.Space))
             {
                 Attack();
                 timeRemaining = cooldown;
@@ -79,7 +79,8 @@ public class Player : MonoBehaviour {
     public void Attack()
     {
         //instantiate object with rigidbody
-        Instantiate(food, transform.position + transform.forward, Quaternion.identity);
-        food.GetComponent<Food>().Create(truckPosition, forceAppliedToFood, transform.forward);
+        Instantiate(food, transform.position + transform.forward * distanceMultiplier, Quaternion.identity);
+        food.GetComponent<Food>().Create(truckPosition, transform.forward);
+        
     }
 }
