@@ -40,7 +40,9 @@ public class Food : MonoBehaviour {
         //get random ingredient
         int rand = Random.Range(0, ingredients.Count);
 
-        Instantiate(ingredients[rand], transform.position, Quaternion.identity);
+        Vector3 vec = transform.position;
+        vec.y = 0;
+        Instantiate(ingredients[rand], vec, Quaternion.identity);
 
         Destroy(gameObject);
     }
