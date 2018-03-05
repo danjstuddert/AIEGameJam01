@@ -1,20 +1,18 @@
 fileFormatVersion: 2
-guid: b9421f91b6bba1946ae4179762ca22fb
-timeCreated: 1520212408
+guid: 29cd649fe093d2c4da495e31531f97bb
+timeCreated: 1520216167
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: mesh_FoodTruck
-    400000: //RootNode
-    400002: mesh_FoodTruck
+    100000: mesh_FoodTruck_Taco
+    100002: //RootNode
+    400000: mesh_FoodTruck_Taco
+    400002: //RootNode
     2100000: lambert1
-    2300000: //RootNode
-    2300002: mesh_FoodTruck
-    3300000: //RootNode
-    3300002: mesh_FoodTruck
-    4300000: mesh_FoodTruck
+    2300000: mesh_FoodTruck_Taco
+    3300000: mesh_FoodTruck_Taco
+    4300000: mesh_FoodTruck_Taco
     9500000: //RootNode
   externalObjects: {}
   materials:
