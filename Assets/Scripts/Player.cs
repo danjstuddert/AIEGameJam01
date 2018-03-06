@@ -109,9 +109,7 @@ public class Player : MonoBehaviour {
             //create new taco object in front of player
             Instantiate(food, transform.position + transform.forward * distanceOffset, Quaternion.identity);
             ThrowAnimation();
-        }
-        
-        
+        }        
     }
 
     private void ThrowAnimation()

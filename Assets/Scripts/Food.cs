@@ -46,19 +46,22 @@ public class Food : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        //get random ingredient
-        int rand = Random.Range(0, ingredients.Count);
-
-        //do not create new object on players or customers
-        if (collision.gameObject.GetComponent<Customers>() == null && 
-            collision.gameObject.GetComponent<Player>() == null && 
-            collision.gameObject.GetComponent<Food>() == null)
+        if (ingredients.Count != 0)
         {
-            Vector3 vec = transform.position;
-            vec.y = collision.transform.position.y;
+            //get random ingredient
+            int rand = Random.Range(0, ingredients.Count - 1);
+            
+            //do not create new object on players or customers
+            if (collision.gameObject.GetComponent<Customers>() == null &&
+                collision.gameObject.GetComponent<Player>() == null &&
+                collision.gameObject.GetComponent<Food>() == null)
+            {
+                Vector3 vec = transform.position;
+                vec.y = collision.transform.position.y;
 
-            Instantiate(ingredients[rand], vec, Quaternion.identity);
-        }        
+                Instantiate(ingredients[rand], vec, Quaternion.identity);
+            }
+        }
 
         Destroy(gameObject);
     }
