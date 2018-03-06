@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 	
 	// Update is called once per frame
@@ -38,13 +38,6 @@ public class Player : MonoBehaviour {
         if (movementVector.z != 0 || movementVector.x != 0)
         {
             animator.SetBool("IsRunning", true);
-            animator.SetBool("IsIdle", false);
-            animator.SetBool("IsThrowing", false);
-        }
-        if (movementVector.z == 0 || movementVector.x == 0)
-        {
-            animator.SetBool("IsRunning", false);
-            animator.SetBool("IsIdle", true);
             animator.SetBool("IsThrowing", false);
         }
 
@@ -115,7 +108,6 @@ public class Player : MonoBehaviour {
     private void ThrowAnimation()
     {
         animator.SetBool("IsRunning", false);
-        animator.SetBool("IsIdle", false);
         animator.SetBool("IsThrowing", true);
         
     }
