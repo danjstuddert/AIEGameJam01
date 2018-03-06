@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Food : MonoBehaviour {
 
+    public AudioClip splatNoise;
     private float effectiveRadius;
     public Vector3 playerForward;
     public float horizontalForce;
@@ -60,6 +61,8 @@ public class Food : MonoBehaviour {
                 vec.y = collision.transform.position.y;
 
                 Instantiate(ingredients[rand], vec, Quaternion.identity);
+
+                AudioSource.PlayClipAtPoint(splatNoise, transform.position);
             }
         }
 

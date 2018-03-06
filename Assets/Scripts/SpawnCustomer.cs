@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpawnCustomer : MonoBehaviour
 {
+    public AudioSource music;
     public GameObject[] customers;
     public GameObject screenTop;
     public GameObject screenBottom;
@@ -25,6 +26,8 @@ public class SpawnCustomer : MonoBehaviour
     {
         customerList = new List<GameObject>();
         timer = spawnTimer;
+
+        music.Play();
     }
 	
 	// Update is called once per frame
