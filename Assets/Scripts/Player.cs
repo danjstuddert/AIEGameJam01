@@ -20,15 +20,18 @@ public class Player : MonoBehaviour {
 
     public GameObject food;
     public float distanceOffset;
+    private bool throwing;
+    private float throwTime;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        throwTime = 0.5f;
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () { 
+	void FixedUpdate () {
         RotatePlayer();
 
         //get controller's left analog input
@@ -38,20 +41,35 @@ public class Player : MonoBehaviour {
         if (movementVector.z != 0 || movementVector.x != 0)
         {
             animator.SetBool("IsRunning", true);
-            animator.SetBool("IsThrowing", false);
         }
+        if (movementVector.z == 0 && movementVector.x == 0)
+        {
+            animator.SetBool("IsRunning", false);
+        }
+
+        if (throwing == true && throwTime > 0)
+        {
+            throwTime -= Time.deltaTime;
+        }
+        if (throwing == true && throwTime <= 0)
+        {
+            throwing = false;
+            animator.SetBool("IsThrowing", false);
+            throwTime = 0.5f;
+        }            
 
         rb.MovePosition(rb.position + movementVector * movementSpeed * Time.fixedDeltaTime);
         
         //if no more time remaining, allow attack
         if (timeRemaining <= 0)
         {
-            if (XCI.GetAxis(XboxAxis.RightTrigger, controller) > 0.1f)
+            if (XCI.GetAxis(XboxAxis.RightTrigger, controller) > 0.1f || Input.GetKey(KeyCode.Space))
             {
                 Attack();
                 timeRemaining = cooldown;
-            }
-        }       
+            }            
+        }
+
         //reduce time remaining
         if (timeRemaining > 0)
         {
@@ -93,6 +111,7 @@ public class Player : MonoBehaviour {
         {
             //create new hotdog object in front of player
             Instantiate(food, transform.position + transform.forward * distanceOffset, Quaternion.identity);
+
             ThrowAnimation();
         }
 
@@ -101,14 +120,13 @@ public class Player : MonoBehaviour {
         {
             //create new taco object in front of player
             Instantiate(food, transform.position + transform.forward * distanceOffset, Quaternion.identity);
+
             ThrowAnimation();
         }        
     }
 
     private void ThrowAnimation()
     {
-        animator.SetBool("IsRunning", false);
-        animator.SetBool("IsThrowing", true);
-        
+        animator.SetTrigger("IsThrowing");        
     }
 }
