@@ -4,6 +4,7 @@ using UnityEngine;
 using XboxCtrlrInput;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIGame : MonoBehaviour {
     public Text hotdogScore;
@@ -11,28 +12,28 @@ public class UIGame : MonoBehaviour {
     public GameObject pauseMenu;
     public GameObject firstSelectedButton;
     public GameObject inGameMenu;
+	public GameObject hotdogWins;
+	public GameObject tacoWins;
+	public Text roundTimer;
 
     public bool IsPaused { get; private set; }
+	public bool GameEnded { get; private set; }
 
     private Player playerOne;
     private Player playerTwo;
 
-    private string playerOneTextOriginal;
-    private string playerTwoTextOriginal;
     private EventSystem eventSystem;
+	private Timer timer;
 
 	void Start () {
+		Time.timeScale = 1f;
+		Cursor.visible = false;
+
         if (pauseMenu.activeInHierarchy)
             pauseMenu.SetActive(false);
 
         if (inGameMenu.activeInHierarchy == false)
             inGameMenu.SetActive(true);
-
-        if (string.IsNullOrEmpty(hotdogScore.text) == false)
-            playerOneTextOriginal = hotdogScore.text;
-
-        if (string.IsNullOrEmpty(tacoScore.text) == false)
-            playerTwoTextOriginal = tacoScore.text;
 
         Player[] players = FindObjectsOfType<Player>();
 
@@ -45,6 +46,7 @@ public class UIGame : MonoBehaviour {
 
         eventSystem = FindObjectOfType<EventSystem>();
         StartCoroutine(SelectFirstSelectable());
+		timer = FindObjectOfType<Timer>();
 	}
 	
 	void Update () {
@@ -53,6 +55,7 @@ public class UIGame : MonoBehaviour {
         if (playerOne == null || playerTwo == null)
             return;
         UpdateScore();
+		UpdateTimer();
 	}
 
     public void Quit() {
@@ -60,14 +63,25 @@ public class UIGame : MonoBehaviour {
     }
 
     private void UpdateScore() {
-        hotdogScore.text = string.Format("{0}: {1}", playerOneTextOriginal, playerOne.GetScore());
-        tacoScore.text = string.Format("{0}: {1}", playerTwoTextOriginal, playerTwo.GetScore());
-    }
+		hotdogScore.text = playerOne.GetScore().ToString();
+        tacoScore.text = playerTwo.GetScore().ToString();
+	}
+
+	private void UpdateTimer() {
+		roundTimer.text = string.Format("{0}:{1}", timer.minutes, (int)timer.seconds);
+	}
 
     private void CheckInput(){
-        if (XCI.GetButtonDown(XboxButton.Start, XboxController.First) || XCI.GetButtonDown(XboxButton.Start, XboxController.Second))
+        if (GameEnded == false && XCI.GetButtonDown(XboxButton.Start, XboxController.First) ||
+			GameEnded == false && XCI.GetButtonDown(XboxButton.Start, XboxController.Second))
             TogglePause();
-    }
+
+		if(GameEnded && XCI.GetButtonDown(XboxButton.Start, XboxController.First) ||
+			GameEnded && XCI.GetButtonDown(XboxButton.Start, XboxController.Second) ||
+			GameEnded && XCI.GetButtonDown(XboxButton.A, XboxController.First) ||
+			GameEnded && XCI.GetButtonDown(XboxButton.A, XboxController.Second))
+			SceneManager.LoadScene(0);
+	}
 
     public void TogglePause() {
         // If paused turn off menu
@@ -87,9 +101,15 @@ public class UIGame : MonoBehaviour {
         }
     }
 
-    public void ShowEndScreen()
-    {
+    public void ShowEndScreen() {
+		Time.timeScale = 0f;
+		GameEnded = true;
 
+		if(playerOne.GetScore() > playerTwo.GetScore()) {
+			hotdogWins.SetActive(true);
+		} else {
+			tacoWins.SetActive(true);
+		}
     }
 
     private IEnumerator SelectFirstSelectable() {

@@ -242,7 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac848d76b513e8438a1d6cf2315040f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splatNoise: {fileID: 0}
   playerForward: {x: 0, y: 0, z: 0}
-  horizontalForce: 2500
-  verticalForce: 50
+  horizontalForce: 2000
+  verticalForce: 100
   ingredients: []

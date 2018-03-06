@@ -95,9 +95,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4409201566476932}
-  - component: {fileID: 114239120357323590}
   - component: {fileID: 54445509340288948}
   - component: {fileID: 136290904233993188}
+  - component: {fileID: 114083672159987096}
   m_Layer: 0
   m_Name: Player_Hotdog
   m_TagString: Hotdog
@@ -514,14 +514,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207916870826766}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.1, y: 0.41, z: -5.5900025}
+  m_LocalRotation: {x: 0, y: 0.97507775, z: 0, w: 0.22186337}
+  m_LocalPosition: {x: -14.15, y: 1, z: 1.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4761912767953434}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 154.363, z: 0}
 --- !u!4 &4417894460859426
 Transform:
   m_ObjectHideFlags: 1
@@ -653,7 +653,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1833757735571680}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.54, z: 0}
+  m_LocalPosition: {x: 0, y: -0.784, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4872568133830430}
@@ -901,7 +901,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114239120357323590
+--- !u!114 &114083672159987096
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -909,7 +909,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1207916870826766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 368ecf700cef6a044b06d38c85da1846, type: 3}
+  m_Script: {fileID: 11500000, guid: be7d5b947af9756468023e5fab031950, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 15

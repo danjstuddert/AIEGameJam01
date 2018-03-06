@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4274251800940754}
   - component: {fileID: 33316041169700072}
   - component: {fileID: 23130437617644550}
+  - component: {fileID: 95733916113280280}
   m_Layer: 0
   m_Name: mesh_Ped1
   m_TagString: Untagged
@@ -36,7 +37,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4609166287668454}
-  - component: {fileID: 95335954165538410}
   m_Layer: 0
   m_Name: Mesh
   m_TagString: Untagged
@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1727748722041720}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -2}
+  m_LocalPosition: {x: -3.23884, y: 0.26, z: -7.765414}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4609166287668454}
@@ -125,7 +125,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385952862958084}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -133,7 +133,7 @@ Transform:
   - {fileID: 4274251800940754}
   m_Father: {fileID: 4172004167386334}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!23 &23130437617644550
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -216,16 +216,16 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1763108357360694}
   m_Mesh: {fileID: 4300002, guid: 83280106e9bfb9f4ca4ff1e885f121a2, type: 3}
---- !u!95 &95335954165538410
+--- !u!95 &95733916113280280
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1385952862958084}
+  m_GameObject: {fileID: 1075498165195058}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f451285204156b646b52e91676535514, type: 3}
-  m_Controller: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2028cd2572e0f484e80cca1a412afab2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -270,10 +270,10 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
-  m_AngularSpeed: 120
+  m_AngularSpeed: 200
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1

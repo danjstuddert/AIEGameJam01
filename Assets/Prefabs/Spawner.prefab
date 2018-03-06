@@ -11,6 +11,21 @@ Prefab:
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1633062976863544}
   m_IsPrefabParent: 1
+--- !u!1 &1277750630744246
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4422504857400800}
+  m_Layer: 0
+  m_Name: ScreenTop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1633062976863544
 GameObject:
   m_ObjectHideFlags: 0
@@ -27,6 +42,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1718262427015512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4829409537658556}
+  m_Layer: 0
+  m_Name: ScreenBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!4 &4357283779300502
 Transform:
   m_ObjectHideFlags: 1
@@ -36,9 +66,37 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4422504857400800}
+  - {fileID: 4829409537658556}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4422504857400800
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1277750630744246}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4357283779300502}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4829409537658556
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718262427015512}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -22}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4357283779300502}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114843203635522544
 MonoBehaviour:
@@ -51,4 +109,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54afa77e179584e40b2efcb1e65bbc91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  customer: {fileID: 0}
+  music: {fileID: 0}
+  customers:
+  - {fileID: 1727748722041720, guid: 760c2b45a5c746848b02c9950493c340, type: 2}
+  - {fileID: 1576584570972368, guid: 7e45e57023f96854a9fa65e03438952f, type: 2}
+  - {fileID: 1443638065812882, guid: 6ca67f1b261989447830b00ca973862d, type: 2}
+  screenTop: {fileID: 1277750630744246}
+  screenBottom: {fileID: 1718262427015512}
+  redTruck: {fileID: 0}
+  greenTruck: {fileID: 0}
+  minSpawnX: -12
+  maxSpawnX: 12
+  spawnY: 0
+  bottomSpawnZ: -22
+  topSpawnZ: 22
+  spawnTimer: 2
