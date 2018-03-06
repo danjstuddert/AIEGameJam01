@@ -17,16 +17,15 @@ public class Player : MonoBehaviour {
     public XboxController controller;
 
     public GameObject food;
-    private float distanceMultiplier;
+    public float distanceOffset;
 
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
-        distanceMultiplier = 1.2f;
     }
 	
 	// Update is called once per frame
-	void FixedUpdate () {
+	void FixedUpdate () { 
         RotatePlayer();
 
         movementVector.z = XCI.GetAxis(XboxAxis.LeftStickY, controller);
@@ -79,8 +78,7 @@ public class Player : MonoBehaviour {
     public void Attack()
     {
         //instantiate object with rigidbody
-        Instantiate(food, transform.position + transform.forward * distanceMultiplier, Quaternion.identity);
-        food.GetComponent<Food>().Create(truckPosition, transform.forward);
+        Instantiate(food, transform.position + transform.forward * distanceOffset, Quaternion.identity);
         
     }
 }
