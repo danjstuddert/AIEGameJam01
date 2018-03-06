@@ -718,6 +718,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 11d56bbf911ab9d4cbe6c6db292971eb, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &407133633 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1875052709566946, guid: 11d56bbf911ab9d4cbe6c6db292971eb,
+    type: 2}
+  m_PrefabInternal: {fileID: 392011917}
 --- !u!1 &408516212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,6 +2903,7 @@ GameObject:
   - component: {fileID: 1542737520}
   - component: {fileID: 1542737519}
   - component: {fileID: 1542737518}
+  - component: {fileID: 1542737521}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2950,6 +2956,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1542737521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1542737517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54afa77e179584e40b2efcb1e65bbc91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customers:
+  - {fileID: 0}
+  screenTop: {fileID: 2130846439}
+  screenBottom: {fileID: 408516212}
+  redTruck: {fileID: 1682057499}
+  greenTruck: {fileID: 407133633}
+  minSpawnX: -10
+  maxSpawnX: 10
+  spawnY: 0
+  bottomSpawnZ: -10
+  topSpawnZ: 10
+  spawnTimer: 2
 --- !u!1001 &1545219420
 Prefab:
   m_ObjectHideFlags: 0
@@ -3203,6 +3232,11 @@ Transform:
   m_Father: {fileID: 368743532}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -108.469, z: 0}
+--- !u!1 &1682057499 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1764410969302038, guid: 4ba80eff23f9bb64da0620053d4e4082,
+    type: 2}
+  m_PrefabInternal: {fileID: 1191886911}
 --- !u!1001 &1690321706
 Prefab:
   m_ObjectHideFlags: 0
