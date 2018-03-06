@@ -11,7 +11,6 @@ public class Player : MonoBehaviour {
     private Vector3 movementVector;
     public float movementSpeed;
 
-    public Transform truckPosition;
     private float score;
     public float cooldown;
     private float timeRemaining;
@@ -20,6 +19,7 @@ public class Player : MonoBehaviour {
 
     public GameObject food;
     public float distanceOffset;
+    public Transform throwPosition;
     private bool throwing;
     private float throwTime;
 
@@ -110,7 +110,7 @@ public class Player : MonoBehaviour {
         if (food.CompareTag("Hotdog") && controller == XboxCtrlrInput.XboxController.First)
         {
             //create new hotdog object in front of player
-            Instantiate(food, transform.position + transform.forward * distanceOffset, Quaternion.identity);
+            Instantiate(food, throwPosition.position + transform.forward * distanceOffset, Quaternion.identity);
 
             ThrowAnimation();
         }
@@ -119,7 +119,7 @@ public class Player : MonoBehaviour {
         else if (food.CompareTag("Taco") && controller == XboxCtrlrInput.XboxController.Second)
         {
             //create new taco object in front of player
-            Instantiate(food, transform.position + transform.forward * distanceOffset, Quaternion.identity);
+            Instantiate(food, throwPosition.position + transform.forward * distanceOffset, Quaternion.identity);
 
             ThrowAnimation();
         }        

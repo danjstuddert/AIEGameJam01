@@ -17,6 +17,11 @@ public class Timer : MonoBehaviour {
 	void Update () {
         seconds -= Time.deltaTime;
 
+        if (isGameRunning)
+        {
+            FindObjectOfType<UIGame>().ShowEndScreen();
+        }
+
         if (seconds <= 0)
         {
             if (minutes > 0)
@@ -26,7 +31,7 @@ public class Timer : MonoBehaviour {
             }
             else
             {
-                FindObjectOfType<UIGame>().ShowEndScreen();
+                isGameRunning = false;
             }
         }
 	}

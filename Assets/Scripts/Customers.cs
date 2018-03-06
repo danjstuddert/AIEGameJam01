@@ -9,6 +9,7 @@ public class Customers : MonoBehaviour
     public string redFood = "Hotdog";
     public string greenFood = "Taco";
     public AudioClip addScore;
+    public float scoreIncrease;
 
     private NavMeshAgent agent;
     private GameObject screenTop;
@@ -16,6 +17,7 @@ public class Customers : MonoBehaviour
     private GameObject redTruck;
     private GameObject greenTruck;
     private bool customerHit;
+    private GameObject player;
 
     // Use this for initialization
     void Awake()
@@ -31,6 +33,7 @@ public class Customers : MonoBehaviour
         {
             effect.Play();
             AudioSource.PlayClipAtPoint(addScore, transform.position);
+            player.GetComponent<Player>().AddScore(scoreIncrease);
         }
 
         if (!customerHit && agent.remainingDistance < 0.1f)
@@ -49,7 +52,7 @@ public class Customers : MonoBehaviour
                 customerHit = true;
             }
         }
-
+        
         if (greenFood != null)
         {
             if (collision.gameObject.CompareTag(greenFood))
@@ -66,22 +69,27 @@ public class Customers : MonoBehaviour
         {
             agent = GetComponent<NavMeshAgent>();
         }
-
+        
         screenTop = top;
         screenBottom = bottom;
         redTruck = red;
         greenTruck = green;
-
+        
         SpawnCustomer spawnScript = FindObjectOfType<SpawnCustomer>();
-
+        
         if (Mathf.Abs(spawnScript.GetPosition().z - spawnScript.topSpawnZ) < 0.01f)
         {
             agent.destination = screenBottom.transform.position;
         }
-
+        
         if (Mathf.Abs(spawnScript.GetPosition().z - spawnScript.bottomSpawnZ) < 0.01f)
         {
             agent.destination = screenTop.transform.position;
         }
+    }
+
+    public void SetPlayer(GameObject a_player)
+    {
+        player = a_player;
     }
 }

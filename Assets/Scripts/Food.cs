@@ -5,13 +5,13 @@ using UnityEngine;
 public class Food : MonoBehaviour {
 
     public AudioClip splatNoise;
-    private float effectiveRadius;
     public Vector3 playerForward;
     public float horizontalForce;
     public float verticalForce;
     public List<GameObject> ingredients;
     private GameObject thisPlayer;
     private Player[] listOfPlayers;
+    
 
 	// Use this for initialization
 	void Start () {
@@ -63,7 +63,12 @@ public class Food : MonoBehaviour {
                 Instantiate(ingredients[rand], vec, Quaternion.identity);
 
                 AudioSource.PlayClipAtPoint(splatNoise, transform.position);
-            }
+            }            
+        }
+
+        if (collision.gameObject.GetComponent<Customers>() != null)
+        {
+            collision.gameObject.GetComponent<Customers>().SetPlayer(thisPlayer);
         }
 
         Destroy(gameObject);

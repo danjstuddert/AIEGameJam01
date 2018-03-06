@@ -27,7 +27,8 @@ public class SpawnCustomer : MonoBehaviour
         customerList = new List<GameObject>();
         timer = spawnTimer;
 
-        music.Play();
+        if (music != null)
+            music.Play();
     }
 	
 	// Update is called once per frame
