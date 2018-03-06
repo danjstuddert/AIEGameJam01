@@ -87,6 +87,11 @@ public class UIGame : MonoBehaviour {
         }
     }
 
+    public void ShowEndScreen()
+    {
+
+    }
+
     private IEnumerator SelectFirstSelectable() {
         yield return new WaitForEndOfFrame();
 
