@@ -84,7 +84,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1284563565946408}
-  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300002, guid: 40265557b923b7a4bb7ab9fab00b601c, type: 3}
 --- !u!114 &114004099024926344
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,6 +99,7 @@ MonoBehaviour:
   effect: {fileID: 0}
   redFood: Hotdog
   greenFood: Taco
+  addScore: {fileID: 0}
 --- !u!136 &136367670015464960
 CapsuleCollider:
   m_ObjectHideFlags: 1
