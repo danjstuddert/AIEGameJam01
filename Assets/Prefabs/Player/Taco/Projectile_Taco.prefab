@@ -152,7 +152,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ac848d76b513e8438a1d6cf2315040f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splatNoise: {fileID: 0}
   playerForward: {x: 0, y: 0, z: 0}
   horizontalForce: 2500
   verticalForce: 50
-  ingredients: []
+  ingredients:
+  - {fileID: 1780344592826030, guid: 381e8f0b89dba4c4483ce48b74b94526, type: 2}
+  - {fileID: 1586859259823370, guid: 0c59a6429e0a14f449a0e5a678a67be2, type: 2}
+  - {fileID: 1484738939678350, guid: 0f25ac8fa1483e847a5106afe0d49c04, type: 2}

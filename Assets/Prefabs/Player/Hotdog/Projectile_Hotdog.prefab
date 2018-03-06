@@ -246,4 +246,7 @@ MonoBehaviour:
   playerForward: {x: 0, y: 0, z: 0}
   horizontalForce: 2000
   verticalForce: 100
-  ingredients: []
+  ingredients:
+  - {fileID: 1390045072156040, guid: ebbc5575b51b2aa45afce032312eb8e6, type: 2}
+  - {fileID: 1542024838819388, guid: 9eea865e76a7eac4f9ddf2262bddc538, type: 2}
+  - {fileID: 1420764957071038, guid: 63415625f566b544881d5aaeddc6bf64, type: 2}
