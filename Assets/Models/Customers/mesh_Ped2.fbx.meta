@@ -8,17 +8,27 @@ ModelImporter:
     100000: face1
     100002: mesh_Ped2
     100004: //RootNode
+    100006: face2
+    100008: mesh_Ped3
     400000: face1
     400002: mesh_Ped2
     400004: //RootNode
+    400006: face2
+    400008: mesh_Ped3
     2100000: lambert1
     2100002: FACE_lambert4
     2300000: face1
     2300002: mesh_Ped2
+    2300004: face2
+    2300006: mesh_Ped3
     3300000: face1
     3300002: mesh_Ped2
+    3300004: face2
+    3300006: mesh_Ped3
     4300000: mesh_Ped2
     4300002: face1
+    4300004: face2
+    4300006: mesh_Ped3
     9500000: //RootNode
   externalObjects: {}
   materials:
