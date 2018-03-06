@@ -9,13 +9,15 @@ public class Food : MonoBehaviour {
     public float horizontalForce;
     public float verticalForce;
     public List<GameObject> ingredients;
-    public GameObject thisPlayer;
+    private GameObject thisPlayer;
     private Player[] listOfPlayers;
 
 	// Use this for initialization
 	void Start () {
+        //return all players
         listOfPlayers = FindObjectsOfType<Player>();
 
+        //set forward direction to player's current forward
         for (int i = 0; i < listOfPlayers.Length; i++)
         {
             if (CompareTag("Hotdog") && listOfPlayers[i].controller == XboxCtrlrInput.XboxController.First)
@@ -23,17 +25,22 @@ public class Food : MonoBehaviour {
                 thisPlayer = listOfPlayers[i].gameObject;
                 playerForward = thisPlayer.transform.forward;
             }
+            else if (CompareTag("Taco") && listOfPlayers[i].controller == XboxCtrlrInput.XboxController.Second)
+            {
+                thisPlayer = listOfPlayers[i].gameObject;
+                playerForward = thisPlayer.transform.forward;
+            }
         }
 
+        //apply force in direction
         Vector3 newForce = playerForward * horizontalForce;
+        
         newForce.y += verticalForce;
         GetComponent<Rigidbody>().AddForce(newForce);
-
     }
 
     // Update is called once per frame
     void FixedUpdate () {
-        //updates playerForward
         
 	}
 
@@ -42,7 +49,10 @@ public class Food : MonoBehaviour {
         //get random ingredient
         int rand = Random.Range(0, ingredients.Count);
 
-        if (collision.gameObject.GetComponent<Customers>() == null && collision.gameObject.GetComponent<Player>() == null)
+        //do not create new object on players or customers
+        if (collision.gameObject.GetComponent<Customers>() == null && 
+            collision.gameObject.GetComponent<Player>() == null && 
+            collision.gameObject.GetComponent<Food>() == null)
         {
             Vector3 vec = transform.position;
             vec.y = collision.transform.position.y;
