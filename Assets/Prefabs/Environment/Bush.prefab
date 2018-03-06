@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33917556951324396}
   - component: {fileID: 23104564741862540}
   - component: {fileID: 95287682655610888}
+  - component: {fileID: 65310390814282480}
   m_Layer: 0
   m_Name: mesh_Bush
   m_TagString: Untagged
@@ -64,8 +65,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1912372384771584}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.4, y: -1.8, z: 37}
-  m_LocalScale: {x: 7.435515, y: 7.435516, z: 7.435516}
+  m_LocalPosition: {x: -18.46, y: -1.4, z: 20.35}
+  m_LocalScale: {x: 9.686209, y: 9.686208, z: 9.686208}
   m_Children:
   - {fileID: 4537792115570452}
   m_Father: {fileID: 0}
@@ -85,7 +86,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 6d2a21cc0d8dac74d8cbe397b0f438e9, type: 2}
+  - {fileID: 2100000, guid: 963141ca41739ce488052b6bcbc0aebe, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -112,6 +113,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673825894368864}
   m_Mesh: {fileID: 4300000, guid: 3f2dcd085eeaeac4b9d310f703e6009d, type: 3}
+--- !u!65 &65310390814282480
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673825894368864}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.158755, y: 0.99999994, z: 1.229554}
+  m_Center: {x: -0.031154964, y: 0.5021625, z: 0.0000006556511}
 --- !u!95 &95287682655610888
 Animator:
   serializedVersion: 3
