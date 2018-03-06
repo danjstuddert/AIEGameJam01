@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnCustomer : MonoBehaviour
 {
-    public GameObject customer;
+    public GameObject[] customers;
     public GameObject screenTop;
     public GameObject screenBottom;
     public GameObject redTruck;
@@ -34,23 +34,25 @@ public class SpawnCustomer : MonoBehaviour
 
         if (timer <= 0.0f)
         {
-            int rand = Random.Range(0, 2);
+            int randPos = Random.Range(0, 2);
+            int randCust = Random.Range(0, customers.Length);
 
-            if (rand == 0)
+            if (randPos == 0)
             {
-                position = new Vector3(Random.Range(minSpawnX, maxSpawnX), 
+                position = new Vector3(Random.Range(minSpawnX, maxSpawnX),
                                        spawnY, bottomSpawnZ);
             }
 
-            if (rand == 1)
+            if (randPos == 1)
             {
                 position = new Vector3(Random.Range(minSpawnX, maxSpawnX),
                                        spawnY, topSpawnZ);
             }
-
-            GameObject c = Instantiate(customer, position, Quaternion.identity);
+            
+            GameObject c = Instantiate(customers[randCust], position, Quaternion.identity);           
             customerList.Add(c);
-            c.GetComponent<Customers>().SetObjects(screenTop, screenBottom, redTruck, greenTruck);
+            c.GetComponent<Customers>().SetObjects(screenTop, screenBottom, 
+                                                   redTruck, greenTruck);
             timer = spawnTimer;
         }
     }

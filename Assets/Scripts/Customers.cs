@@ -6,8 +6,8 @@ using UnityEngine.AI;
 public class Customers : MonoBehaviour
 {
     public ParticleSystem effect;
-    public string redFood;
-    public string greenFood;
+    public string redFood = "Hotdog";
+    public string greenFood = "Taco";
 
     private NavMeshAgent agent;
     private GameObject screenTop;
@@ -26,13 +26,19 @@ public class Customers : MonoBehaviour
 	// Update is called once per frame
 	void FixedUpdate()
     {
+        float dist = agent.remainingDistance;
+
         if (customerHit && agent.remainingDistance == 0 && (effect != null))
         {
             effect.Play();
         }
-
-        if (!customerHit && agent.remainingDistance == 0)
+        if (customerHit)
         {
+            Debug.Log("Customer Hit");
+        }
+        if (!customerHit && (agent.remainingDistance < 0.1f) && (dist != Mathf.Infinity) && (agent.pathStatus == NavMeshPathStatus.PathComplete))
+        {
+            Debug.Log("Destrying");
             Destroy(gameObject);
         }
     }
@@ -60,6 +66,17 @@ public class Customers : MonoBehaviour
 
     public void SetObjects(GameObject top, GameObject bottom, GameObject red, GameObject green)
     {
+        if(agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+
+        if (agent == null)
+        {
+            Debug.Log("Agent Doesnt Exist");
+        }
+
+
         screenTop = top;
         screenBottom = bottom;
         redTruck = red;
@@ -67,13 +84,21 @@ public class Customers : MonoBehaviour
 
         SpawnCustomer spawnScript = FindObjectOfType<SpawnCustomer>();
 
-        if (spawnScript.GetPosition().z == spawnScript.topSpawnZ)
+        if (spawnScript == null)
+        {
+            Debug.Log("spawnScript Doesnt Exist");
+        }
+
+        if (Mathf.Abs(spawnScript.GetPosition().z - spawnScript.topSpawnZ) < 0.01f)
         {
             agent.destination = screenBottom.transform.position;
         }
 
-        if (spawnScript.GetPosition().z == spawnScript.bottomSpawnZ)
+        if (Mathf.Abs(spawnScript.GetPosition().z - spawnScript.bottomSpawnZ) < 0.01f)
         {
+            
+                //Debug.LogError(agent.isActiveAndEnabled.ToString());
+            
             agent.destination = screenTop.transform.position;
         }
     }
